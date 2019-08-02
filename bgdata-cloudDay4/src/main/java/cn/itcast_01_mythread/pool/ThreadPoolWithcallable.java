@@ -18,8 +18,8 @@ import java.util.concurrent.Future;
 public class ThreadPoolWithcallable {
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		ExecutorService pool = Executors.newFixedThreadPool(4); 
-		
+		ExecutorService pool = Executors.newFixedThreadPool(20); 
+		List<Future<String>> list  = new ArrayList<Future<String>>();
 		for(int i = 0; i < 10; i++){
 			Future<String> submit = pool.submit(new Callable<String>(){
 				public String call() {
@@ -33,9 +33,13 @@ public class ThreadPoolWithcallable {
 					return "b--"+Thread.currentThread().getName();
 				}			   
 			   });
+			list.add(submit);
 			//从Future中get结果，这个方法是会被阻塞的，一直要等到线程任务返回结果
-			System.out.println(submit.get());
+//			System.out.println(submit.get());
 		} 
+		for (Future<String> future : list) {
+			System.out.println(future.get());
+		}
 			pool.shutdown();
 
 	}
