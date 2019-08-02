@@ -12,7 +12,7 @@ public class DesTask {
  * @throws Exception
  */
 	public static void main(String[] args) throws Exception {
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("c://tasks"));
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D://tasks"));
 		ExecutorService pool = Executors.newCachedThreadPool();
 		Task t = (Task) ois.readObject();
 		pool.execute(t);

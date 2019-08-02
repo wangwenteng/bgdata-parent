@@ -9,7 +9,7 @@ public class MySynchronized {
 				synchronized (mySynchronized) {
 				try {
 					System.out.println(this.getName()+" start");
-					int i =1/0;   //如果发生异常，jvm会将锁释放
+//					int i =1/0;   //如果发生异常，jvm会将锁释放
 					Thread.sleep(5000);
 					System.out.println(this.getName()+"醒了");
 					System.out.println(this.getName()+" end");
