@@ -16,5 +16,6 @@
   <modules>
   	<module>bgdata-zk</module>
   	<module>bgdata-cloudDay4</module>
+  	<module>bgdata-cloudDay5</module>
   </modules>
 </project>
